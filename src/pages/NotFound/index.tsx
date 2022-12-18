@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Wrapper = styled.div({
   textAlign: 'center',
+  marginBottom: 64,
 })
 
 const NotFound = () => {

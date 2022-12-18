@@ -90,7 +90,7 @@ const Listing: FC = () => {
         {data.slice(0, count).map((item, idx) => (
           <Item key={idx}>
             <Image>
-              <img src={`/images/${item.url}`} alt={`img-column-${idx + 1}`} />
+              <img src={`./images/${item.url}`} alt={`img-column-${idx + 1}`} />
               <DateTime>{item.datetime}</DateTime>
             </Image>
             <Title>{item.title}</Title>

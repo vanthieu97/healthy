@@ -111,7 +111,7 @@ const MealHistory = () => {
       <ItemList>
         {[...(isShowMore ? data : data.slice(0, 8))].map(({ title, url }) => (
           <Item key={url}>
-            <Image src={`/images/${url}`} alt={title} />
+            <Image src={`./images/${url}`} alt={title} />
             <Title>{title}</Title>
           </Item>
         ))}

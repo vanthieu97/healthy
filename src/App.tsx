@@ -1,7 +1,7 @@
 import Footer from 'components/Footer'
 import Header from 'components/Header'
 import { FC, lazy, ReactNode, Suspense as ReactSuspense } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 
 const Home = lazy(() => import('./pages/Home'))
 const MyRecord = lazy(() => import('./pages/MyRecord'))
