@@ -1,26 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Footer from 'components/Footer'
+import Header from 'components/Header'
+import { FC, lazy, ReactNode, Suspense as ReactSuspense } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const Home = lazy(() => import('./pages/Home'))
+const MyRecord = lazy(() => import('./pages/MyRecord'))
+const ColumnPage = lazy(() => import('./pages/ColumnPage'))
+const NotFound = lazy(() => import('./pages/NotFound'))
+
+interface SuspenseProps {
+  component: ReactNode
 }
 
-export default App;
+const Suspense: FC<SuspenseProps> = ({ component }) => (
+  <ReactSuspense fallback={<span>Loading...</span>}>{component}</ReactSuspense>
+)
+
+const App = () => {
+  return (
+    <Router>
+      <Header />
+      <Routes>
+        <Route path='/' element={<Suspense component={<Home />} />} />
+        <Route
+          path='/my-record'
+          element={<Suspense component={<MyRecord />} />}
+        />
+        <Route
+          path='/column'
+          element={<Suspense component={<ColumnPage />} />}
+        />
+        <Route path='*' element={<NotFound />} />
+      </Routes>
+      <Footer />
+    </Router>
+  )
+}
+
+export default App
