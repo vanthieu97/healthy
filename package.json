@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "author": "vanthieunguyen234@gmail.com",
   "private": true,
-  "homepage": "https://vanthieu97.github.io/healthy/",
   "dependencies": {
     "@emotion/styled": "^11.10.5",
     "@testing-library/jest-dom": "^5.16.5",
